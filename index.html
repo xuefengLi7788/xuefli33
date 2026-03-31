@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xuefeng Li</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<!-- re-run site -->
+<body>
+  <!-- bgvideo -->
+  <video autoplay muted loop playsinline webkit-playsinline id="bg-video">
+    <source src="web bg video.mp4" type="video/mp4">
+  </video>
+
+  <!-- Sidebar -->
+  
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" id="menu-btn"> <!-- Sidebar logo -->
+      <span class="line1"></span>
+      <span class="line2"></span>
+      <span class="line3"></span>
+  </label>
+
+  <div id="sidebar">
+      <ul>
+        <li><a href="playground.html" class="clickline active">Playground</a></li>
+        <li><a href="projects.html">All Project</a></li>
+        
+      </ul>
+
+      <ul class="contact">
+        <li><a href="mailto:xuefli33@gmail.com">xuefli33@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/xuefeng-li/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+  </div>
+
+  <div class="passport">
+    <!-- info group -->
+      <div class="info">
+        <p class="group">
+          <span class = "label" data-i18n="surname">Surname/Family name:</span>
+          <strong class = "value" data-i18n="LI">LI</strong>
+        </p>
+        <p class="group">
+          <span class="label" data-i18n="given">Given name: </span>
+          <strong class = "value" data-i18n="XUEFENG">XUEFENG</strong>
+        </p>
+        <p class="group">
+          <span class="label" data-i18n="issuing">Issuing Post Name:</span>
+            <strong class="value"> 
+              <select class="dropdown">
+                <option value="la" selected data-i18n="LA" >LOS ANGELES</option>
+                <option value="bj" data-i18n="BJ">BEIJING</option>
+              </select>
+            </strong>
+        </p>
+        <p class="group">
+          <span class="label" data-i18n="entries">Entries:</span>
+          <strong class="value">
+          <a href="reel.html" class="hover" data-i18n="reel">REEL</a> / 
+          <a href="projects.html" class="hover" data-i18n="allProjects">ALL PROJECT</a>
+          </strong>
+        </p>
+
+        <div class="group">
+        <p>
+          <span class="label" data-i18n="focus">Focus:</span>
+        </p>
+        <ul>
+          <li><a href="projects.html?category=graphic" class="hover" data-i18n="focus_graphic">GRAPHIC DESIGN</a></li>
+          <li><a href="projects.html?category=motion" class="hover" data-i18n="focus_motion">MOTION GRAPHIC DESIGN</a></li>
+          <li><a href="projects.html?category=uiux" class="hover" data-i18n="focus_uiux">UI/UX DESIGN</a></li>
+        </ul>
+      </div>
+      </div>
+      <!-- symbols group -->
+    <div class="symbols">**</div>
+    <div class="visual-id">VISUALDESIGNER&lt;&lt;XUEFENG&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div>
+      <img src="image/profile.png" alt="Xuefeng Li" class="profile-pic">
+   
+      <!-- Secondpage -->
+    <div class="secondpage" data-i18n="newProjects">NEW projects!</div>
+
+    <div class="newprojects-list">
+      <div class="newproject">
+         <a href="walkinla.html" class="name"><u>WalkinLa</u></a>
+        <span class="tag" data-i18n="tag_uiux">{uiux}</span>
+        <span class="tools">Figma, Unity, C4D, Ae</span>
+        <span class="year">2024</span>
+      </div>
+
+      <div class="newproject">
+        <span class="name"><u>FutureofFlowers</u></span>
+        <span class="tag" data-i18n="tag_uiux">{uiux}</span>
+        <span class="tools">Figma, Illustrator</span>
+        <span class="year">2024</span>
+      </div>
+
+      <div class="newproject">
+        <span class="name"><u>IntimateSpace</u></span>
+        <span class="tag" data-i18n="tag_XR">{XR}</span>
+        <span class="tools">Figma, C4D, Ae</span>
+        <span class="year">2024</span>
+      </div>
+
+      <div class="newproject">
+        <span class="name"><u>TheLastDecision</u></span>
+        <span class="tag" data-i18n="tag_service">{Service}</span>
+        <span class="tools">TouchDesigner + Arduino</span>
+        <span class="year">2023</span>
+      </div>
+    </div>
+   
+      <button id="feedbackBtn" class="feedback-btn">CUSTOMS FEEDBACK</button>
+
+      <!-- form update -->
+      <div id="feedbackPopup" class="popup-overlay">
+        <div class="popup-box">
+          <span id="popupClose" class="popup-close">&times;</span>
+
+          <h2 class="popup-title">CUSTOMS FEEDBACK</h2>
+
+          <!-- === EmailJS 发送的表单 === -->
+          <div class="popup-inner"> 
+          <form id="contact-form">
+            <label>Name</label>
+            <input type="text" id="user-name" name="user-name" placeholder="Your name..." required>
+
+            <label>Email</label>
+            <input type="email" id="user-email" name="user-email" placeholder="Your email..." required>
+
+            <label>Comment</label>
+            <textarea id="message" name="message" placeholder="Let me know your favorite project..." required></textarea>
+
+            <button type="submit" id="send-btn" class="popup-submit">SEND</button>
+          </form>
+          </div>
+
+        </div>
+      </div>
+ </div>
+
+
+
+    <footer class="site-footer">
+    <p>Copyright © Xuefeng Li</p>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("l0lsVh4tBQbs5il1z"); 
+  })();
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./main.js"></script>
+</body>
+
+</html>
+
