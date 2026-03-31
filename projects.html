@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proejctspage</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body class="project-page">
+    <video autoplay muted loop playsinline id="bg-video">
+    <source src="web bg video.mp4" type="video/mp4">
+    update your browser for the beautiful bg video.
+    </video>
+  <input type="checkbox" id="menu-toggle">
+
+  <label for="menu-toggle" id="menu-btn">
+      <span class="line1"></span>
+      <span class="line2"></span>
+      <span class="line3"></span>
+  </label>
+    <div id="sidebar">
+      <ul>
+        <li><a href="index.html" >Playground</a></li>
+        <li><a href="projects.html" class="nav-link active">All Project</a></li>
+        
+      </ul>
+
+      <ul class="contact">
+        <li><a href="mailto:xuefli33@gmail.com">xuefli33@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/xuefli33" target="_blank">LinkedIn</a></li>
+      </ul>
+  </div>
+  
+
+
+<section class="category-header">
+  <div class="tab active" data-category="all">All</div>
+  <div class="tab" data-category="motion">Motion</div>
+  <div class="tab" data-category="uiux">UI/UX</div>
+  <div class="tab" data-category="graphic">Graphic</div>
+  <div class="tab" data-category="fun">Fun</div>
+</section>
+
+
+  <section class="gallery">
+    <div class="Project_cover" data-category="uiux">
+      <video src="Project_cover/intimate space.mp4" muted autoplay loop playsinline preload="auto"></video>
+      <p>IntimateSpace.<br>2025</p>
+    </div>
+    <div class="Project_cover" data-category="uiux">
+      <video src="Project_cover/walk in la.mp4" muted autoplay loop playsinline preload="auto"></video>
+      <p>WalkinLA.<br>2024</p>
+    </div>
+    <div class="Project_cover" data-category="fun">
+      <video src="Project_cover/intimate space.mp4" muted playsinline preload="metadata"></video>
+      <p>Project3<br>2024</p>
+    </div>
+    <div class="Project_cover" data-category="fun">
+      <video src="Project_cover/walk in la.mp4" muted playsinline preload="metadata"></video>
+      <p>Project4<br>2024</p>
+    </div>
+  </section>
+
+
+
+    
+
+
+
+
+
+
+
+
+<footer class="site-footer">
+<p>Copyright © Xuefeng Li</p>
+</footer>
+
+</body>
+</html>
+
