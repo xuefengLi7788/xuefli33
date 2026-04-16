@@ -1,0 +1,429 @@
+/* Nava voice assistant landing — mobile-first mock */
+
+:root {
+  --nava-bg: #f8faff;
+  --nava-surface: #ffffff;
+  --nava-muted: #8a9099;
+  --nava-text: #1a1d21;
+  --nava-accent: #fef0b3;
+  --nava-accent-strong: #fff0b3;
+  --nava-blue-tag: #e3f0ff;
+  --nava-blue-tag-text: #2b6cb0;
+  --nava-purple-tag: #ede9fe;
+  --nava-purple-tag-text: #5b4dba;
+  --nava-link: #2563eb;
+  --nava-card-grey: #f0f2f5;
+  --nava-nav-bg: #faf8f4;
+  --nava-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+  --nava-radius-lg: 28px;
+  --nava-radius-md: 20px;
+  --nava-radius-sm: 14px;
+  --font: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.nava-page {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  background: #e8ecf4;
+  color: var(--nava-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.nava-shell {
+  max-width: 420px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--nava-bg);
+  position: relative;
+  padding: 20px 20px 100px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Header */
+.nava-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.nava-greeting {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.nava-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nava-icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #e8eaef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #4a5568;
+  padding: 0;
+  transition: background 0.15s ease;
+}
+
+.nava-icon-btn:hover {
+  background: #dde1e8;
+}
+
+.nava-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Voice CTA */
+.nava-voice-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 0 32px;
+}
+
+.nava-voice-btn {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(145deg, #fff6d0 0%, var(--nava-accent-strong) 100%);
+  box-shadow: 0 12px 40px rgba(254, 240, 179, 0.55), 0 4px 12px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nava-voice-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 16px 48px rgba(254, 240, 179, 0.65), 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.nava-voice-btn:active {
+  transform: scale(0.98);
+}
+
+.nava-voice-btn svg {
+  color: #3d4450;
+}
+
+.nava-voice-label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #5c6370;
+  max-width: 140px;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.nava-hints {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--nava-muted);
+  line-height: 1.5;
+  padding: 0 8px;
+  max-width: 320px;
+}
+
+/* Section */
+.nava-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.nava-section-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.nava-link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--nava-link);
+  text-decoration: none;
+}
+
+.nava-link:hover {
+  text-decoration: underline;
+}
+
+/* Recent cards */
+.nava-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.nava-row-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--nava-surface);
+  border-radius: var(--nava-radius-md);
+  padding: 14px 14px 14px 16px;
+  box-shadow: var(--nava-shadow);
+}
+
+.nava-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.nava-pill--guide {
+  background: var(--nava-blue-tag);
+  color: var(--nava-blue-tag-text);
+}
+
+.nava-pill--finance {
+  background: var(--nava-purple-tag);
+  color: var(--nava-purple-tag-text);
+}
+
+.nava-row-card-body {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--nava-text);
+}
+
+.nava-row-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #f4f5f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.nava-row-arrow:hover {
+  background: #e8eaef;
+}
+
+/* Reminder card */
+.nava-reminder {
+  background: var(--nava-card-grey);
+  border-radius: var(--nava-radius-lg);
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: var(--nava-shadow);
+}
+
+.nava-reminder-top {
+  padding: 18px 18px 14px;
+}
+
+.nava-pill--reminder {
+  background: var(--nava-accent);
+  color: #5c4d00;
+}
+
+.nava-reminder-title {
+  margin: 10px 0 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.nava-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--nava-link);
+  text-decoration: none;
+}
+
+.nava-resume:hover {
+  text-decoration: underline;
+}
+
+.nava-reminder-visual {
+  height: 120px;
+  background: linear-gradient(180deg, #0f172a 0%, #1e3a5f 50%, #0c1929 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.nava-reminder-visual::before,
+.nava-reminder-visual::after {
+  content: "";
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.9), transparent);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
+}
+
+.nava-reminder-visual::before {
+  top: 38%;
+  transform: rotate(-2deg);
+}
+
+.nava-reminder-visual::after {
+  top: 58%;
+  transform: rotate(1deg);
+  opacity: 0.85;
+}
+
+.nava-reminder-brand {
+  position: relative;
+  z-index: 1;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 24px rgba(96, 165, 250, 0.5);
+}
+
+/* Proactive tip */
+.nava-tip {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--nava-card-grey);
+  border-radius: var(--nava-radius-md);
+  padding: 16px 16px 16px 0;
+  border-left: 5px solid #1e293b;
+  box-shadow: var(--nava-shadow);
+}
+
+.nava-tip-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.nava-tip-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.nava-tip-body {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--nava-muted);
+}
+
+/* Bottom nav */
+.nava-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 420px;
+  background: var(--nava-nav-bg);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 10px 24px 22px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 10;
+}
+
+.nava-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #8b9199;
+  font-family: inherit;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 14px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nava-nav-item--active {
+  background: var(--nava-accent);
+  color: #3d4450;
+}
+
+.nava-nav-item:not(.nava-nav-item--active):hover {
+  color: #5c6370;
+}
+
+.nava-nav-item svg {
+  display: block;
+}
+
+@media (min-width: 480px) {
+  body.nava-page {
+    padding: 24px 0;
+  }
+
+  .nava-shell {
+    min-height: calc(100vh - 48px);
+    border-radius: 32px;
+    padding-bottom: 100px;
+  }
+
+  .nava-nav {
+    border-radius: 0 0 32px 32px;
+  }
+}

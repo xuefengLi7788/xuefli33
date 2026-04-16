@@ -701,15 +701,20 @@ html[lang="zh-CN"] * {
   overflow: hidden;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.Project_cover video {
-  
+.Project_cover a {
+  display: block;
+}
+.Project_cover video,
+.Project_cover img {
+  display: block;
   width: 100%; /* 完全填满列宽 */
   height: auto; /* 自动保持比例 */
   aspect-ratio: 16 / 9; /* 保持 16:9 比例 */
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
   object-fit: cover; /* 保持视觉裁切一致 */
 }
-.Project_cover:hover video {
+.Project_cover:hover video,
+.Project_cover:hover img {
   transform: scale(1.05);
 }
 

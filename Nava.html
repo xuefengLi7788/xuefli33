@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nava — Voice Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nava.css">
+</head>
+<body class="nava-page">
+  <div class="nava-shell">
+    <header class="nava-header">
+      <p class="nava-greeting">Good Afternoon, Xuefeng ☀️</p>
+      <div class="nava-header-actions">
+        <button type="button" class="nava-icon-btn" aria-label="Settings">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+        <img class="nava-avatar" src="image/profilepic.png" width="44" height="44" alt="Profile">
+      </div>
+    </header>
+
+    <section class="nava-voice-block" aria-label="Ask Nava">
+      <button type="button" class="nava-voice-btn">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
+        </svg>
+        <span class="nava-voice-label">Tap to Ask Nava</span>
+      </button>
+      <p class="nava-hints">"How do I set up my router?" or "Check my insurance balance"</p>
+    </section>
+
+    <section aria-labelledby="recent-heading">
+      <div class="nava-section-head">
+        <h2 id="recent-heading" class="nava-section-title">Recently Asked</h2>
+        <a href="#" class="nava-link">View All</a>
+      </div>
+      <div class="nava-card-list">
+        <article class="nava-row-card">
+          <span class="nava-pill nava-pill--guide">GUIDE</span>
+          <span class="nava-row-card-body">Restart the Router</span>
+          <button type="button" class="nava-row-arrow" aria-label="Open">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </article>
+        <article class="nava-row-card">
+          <span class="nava-pill nava-pill--finance">FINANCE</span>
+          <span class="nava-row-card-body">Check Medical Insurance</span>
+          <button type="button" class="nava-row-arrow" aria-label="Open">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <article class="nava-reminder">
+      <div class="nava-reminder-top">
+        <span class="nava-pill nava-pill--reminder">Reminder</span>
+        <h3 class="nava-reminder-title">Connecting Your Smart TV</h3>
+        <a href="#" class="nava-resume">
+          Resume Guide
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="nava-reminder-visual">
+        <span class="nava-reminder-brand">Saafit work</span>
+      </div>
+    </article>
+
+    <aside class="nava-tip">
+      <div class="nava-tip-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/>
+          <path d="M5 19l1-2M19 19l-1-2"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="nava-tip-title">Proactive Tip</h3>
+        <p class="nava-tip-body">I noticed you were checking your router. Would you like me to run a speed test for your connection?</p>
+      </div>
+    </aside>
+  </div>
+
+  <nav class="nava-nav" aria-label="Main">
+    <button type="button" class="nava-nav-item nava-nav-item--active" aria-current="page">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      Home
+    </button>
+    <button type="button" class="nava-nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path fill="currentColor" d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/>
+      </svg>
+      Explore
+    </button>
+    <button type="button" class="nava-nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      Profile
+    </button>
+  </nav>
+</body>
+</html>
