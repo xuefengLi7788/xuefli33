@@ -1105,29 +1105,55 @@ html.np-reveal-js .np-reveal.np-reveal--in {
   color: var(--sidebar-text);
 }
 
-.navapage-body .clickline {
-  display: inline-block;
-  font-family: var(--sidebar-font);
-  color: var(--sidebar-text);
-  text-decoration: none;
+.navapage-body #sidebar a.clickline {
+  display: inline;
   position: relative;
 }
 
-.navapage-body .clickline.active {
+.navapage-body #sidebar a.clickline.active {
   color: #000;
   cursor: default;
   pointer-events: none;
+  text-decoration: line-through;
+  text-decoration-color: #000;
+  text-decoration-thickness: 2px;
 }
 
-.navapage-body .clickline.active::after {
-  content: "";
-  position: absolute;
-  bottom: 8px;
+/* Back to projects — same category-header as sophia.html */
+.navapage-body .category-header {
+  position: fixed;
+  top: 20px;
   left: 0;
-  width: 39%;
-  height: 2px;
-  background-color: #000;
-  border-radius: 2px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 1600px;
+  margin-inline: auto;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+.navapage-body .project-back {
+  font-family: "Roboto Mono", monospace;
+  font-size: clamp(18px, 1.5vw, 22px);
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navapage-body .project-back:hover {
+  color: var(--sidebar-hover);
+}
+
+@media (max-width: 480px) {
+  .navapage-body .category-header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 /* Desktop: hover opens drawer (matches index.html) */

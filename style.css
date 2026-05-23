@@ -141,47 +141,36 @@
   color: var(--importanttext-color);
   text-decoration: none;
   position: relative;
-
-}
-.clickline.active {
-  color: #000; 
-  cursor: default; 
-  pointer-events: none; 
 }
 
-.clickline.active::after {
-  content: "";
-  position: absolute;
-  bottom: 8px;
-  left: 0;
-  width: 39%;
-  height: 2px;
-  background-color: #000000; 
-  border-radius: 2px;
+#sidebar a.clickline {
+  display: inline;
+  position: relative;
 }
+
+/* Sidebar active: line length matches text exactly */
+#sidebar a.clickline.active {
+  color: #000;
+  cursor: default;
+  pointer-events: none;
+  text-decoration: line-through;
+  text-decoration-color: #000;
+  text-decoration-thickness: 2px;
+}
+
 .nav-link {
   display: inline-block;
   font-family: 'Roboto Mono', monospace;
   color: var(--importanttext-color);
   text-decoration: none;
   position: relative;
-
 }
+
+/* Legacy — sidebar uses .clickline.active only (no double underline) */
 .nav-link.active {
-  color: #000; 
-  cursor: default; 
-  pointer-events: none; 
-}
-
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: 8px;
-  left: 0;
-  width: 42%;
-  height: 2px;
-  background-color: #000000; 
-  border-radius: 2px;
+  color: #000;
+  cursor: default;
+  pointer-events: none;
 }
 
 #menu-btn:hover ~ #sidebar,
@@ -703,37 +692,25 @@ html[lang="zh-CN"] * {
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Fixed 16:9 frame — video/img fill it (works in Chrome) */
-.Project_cover-media {
+.Project_cover a {
   display: block;
-  position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: #1a1a1a;
   line-height: 0;
+  overflow: hidden;
 }
 
-a.Project_cover-media {
-  text-decoration: none;
-  color: inherit;
-}
-
-.Project_cover-media video,
-.Project_cover-media img,
-.Project_cover-media iframe {
-  position: absolute;
-  inset: 0;
+.Project_cover video,
+.Project_cover img {
   display: block;
   width: 100%;
-  height: 100%;
-  border: 0;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
   object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
-.Project_cover:hover .Project_cover-media video,
-.Project_cover:hover .Project_cover-media img {
+.Project_cover:hover video,
+.Project_cover:hover img {
   transform: scale(1.05);
 }
 
@@ -741,31 +718,53 @@ a.Project_cover-media {
   display: none;
 }
 
-/* ========== sophia.html — player spans header-left → viewport-right ========== */
+/* sophia.html only — Vimeo player, equal left/right inset */
 .sophia-page {
   overflow-x: clip;
+  --sophia-content-max: 1600px;
+  --sophia-side-gutter: 30px;
+}
+
+.sophia-page .category-header {
+  padding-left: var(--sophia-side-gutter);
+  padding-right: var(--sophia-side-gutter);
+}
+
+.sophia-page .sophia-back {
+  font-family: "Roboto Mono", monospace;
+  font-size: clamp(18px, 1.5vw, 22px);
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.sophia-page .sophia-back:hover {
+  color: var(--hover-color);
 }
 
 .sophia-page .sophia-player {
-  --sophia-content-max: 1600px;
-  --sophia-gutter: 30px;
-  --sophia-inset-left: max(
-    var(--sophia-gutter),
-    calc((100vw - var(--sophia-content-max)) / 2 + var(--sophia-gutter))
-  );
-
-  margin-top: clamp(72px, 12vw, 96px);
-  margin-left: var(--sophia-inset-left);
-  margin-right: 0;
-  width: calc(100vw - var(--sophia-inset-left));
+  width: 100%;
+  max-width: var(--sophia-content-max);
+  margin-inline: auto;
+  padding:
+    clamp(80px, 14vw, 104px)
+    var(--sophia-side-gutter)
+    clamp(48px, 8vw, 72px)
+    var(--sophia-side-gutter);
   box-sizing: border-box;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .sophia-page .sophia-player-frame {
   position: relative;
   width: 100%;
+  margin-inline: auto;
   aspect-ratio: 16 / 9;
-  min-height: min(78vh, calc((100vw - var(--sophia-inset-left)) * 9 / 16));
+  max-height: min(72vh, 820px);
   background: #1a1a1a;
   overflow: hidden;
 }
@@ -779,7 +778,7 @@ a.Project_cover-media {
 }
 
 .sophia-page .sophia-caption {
-  margin: 16px 0 48px;
+  margin: 16px 0 0;
   padding: 0;
   font-family: "Roboto Mono", monospace;
   font-size: var(--font-size-small);
@@ -788,8 +787,11 @@ a.Project_cover-media {
 }
 
 @media (max-width: 480px) {
-  .sophia-page .sophia-player {
-    --sophia-gutter: 1rem;
+  .sophia-page {
+    --sophia-side-gutter: 1rem;
   }
 }
+
+
+
 
