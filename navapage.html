@@ -7,9 +7,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="navapage.css">
+  <script>
+    document.documentElement.classList.add("np-reveal-js");
+  </script>
 </head>
 <body class="navapage-body">
+  <!-- Site sidebar (same pattern as index.html) -->
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" id="menu-btn" aria-label="Open site menu" aria-controls="sidebar">
+    <span class="line1"></span>
+    <span class="line2"></span>
+    <span class="line3"></span>
+  </label>
+
+  <nav id="sidebar" aria-label="Site">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="playground.html">Playground</a></li>
+      <li><a href="projects.html">All Project</a></li>
+      <li><a href="navapage.html" class="clickline active" aria-current="page">Nava</a></li>
+    </ul>
+    <ul class="contact">
+      <li><a href="mailto:xuefli33@gmail.com">xuefli33@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/xuefeng-li/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    </ul>
+  </nav>
+
   <article class="navapage">
     <!-- Hero -->
     <header>
@@ -19,20 +44,20 @@
     <!-- The Problem -->
     <section class="np-band np-band--lavender" aria-labelledby="problem-heading">
       <div class="np-container">
-        <h2 id="problem-heading" class="np-section-title">The Problem</h2>
+        <h2 id="problem-heading" class="np-section-title np-reveal">The Problem</h2>
         <div class="np-two-col">
-          <div>
+          <div class="np-reveal">
             <p class="np-prose">
               Millions of older adults needs face <strong>fragmented interfaces, unclear navigation, and devices that assume prior digital literacy</strong>. As essential services move online, the gap between those who can participate and those who are excluded keeps widening.
             </p>
           </div>
-          <div>
+          <div class="np-reveal">
             <h3 class="np-subhead">The reality of effective digital inclusion</h3>
             <ul class="np-list">
-              <li>Complex menus and small touch targets exclude users with motor or vision differences.</li>
-              <li>Support often requires a “tech-savvy” family member who may not always be available.</li>
-              <li>Products optimize for power users, not for clarity, patience, and plain language.</li>
-              <li>Fear of “breaking something” leads many to disengage from useful tools entirely.</li>
+              <li>Complex menus exclude users with motor or vision differences.</li>
+              <li>Support often requires a “tech-savvy” family member.</li>
+              <li>Products optimize for power users, not for patience language.</li>
+              <li>Fear of “breaking something” leads many to disengage.</li>
             </ul>
           </div>
         </div>
@@ -40,120 +65,113 @@
     </section>
 
     <!-- Product -->
-    <section class="np-band np-band--white" aria-labelledby="product-heading">
-      <div class="np-container">
-        <h2 id="product-heading" class="np-section-title">The Product</h2>
-        <div class="np-product-grid">
-          <div class="np-logo-xl">nava</div>
-          <p class="np-prose" style="margin-left: 24px; font-size:1.125rem;">
-            Nava is a solution for accessibility challenges across communication, information, and entertainment. <strong>Easily connect with loved ones, get answers in no time, and complete everyday tasks</strong>—with a voice-first experience.
-          </p>
-        </div>
+<section class="np-band np-band--white" aria-labelledby="product-heading">
+  <div class="np-container">
+    <h2 id="product-heading" class="np-section-title np-reveal">Product</h2>
+    <div class="np-product-grid">
+      <div class="np-logo-xl np-reveal">
+        <img src="image/navalogo.png" alt="Nava logo">
       </div>
-    </section>
+      <p class="np-prose np-reveal" style="margin-left: 40px; font-size:1.125rem;">
+        Nava is a solution for accessibility challenges across communication, information, and entertainment. <strong>Easily connect with loved ones, get answers in plain language, and complete everyday tasks</strong>—with a voice-first experience designed for confidence, not confusion.
+      </p>
+    </div>
+  </div>
+</section>
 
     <!-- Persona -->
     <section class="np-band np-band--lavender" aria-labelledby="persona-heading">
       <div class="np-container">
-        <h2 id="persona-heading" class="np-section-title">Persona</h2>
-        <div class="np-persona-card">
+        <h2 id="persona-heading" class="np-section-title np-reveal">Persona</h2>
+        <div class="np-persona-card np-reveal">
           <div class="np-persona-accent" aria-hidden="true"></div>
           <div class="np-persona-top">
             <div>
-              <h3 class="np-persona-name">Ashley Miller</h3>
-              <p class="np-persona-age">74 years old</p>
-              <blockquote class="np-persona-quote">“I just feel like I’m trying to keep up, and it’s not as easy as it should be.”</blockquote>
+              <h3 class="np-persona-name"><strong>Ashley Miller</strong></h3>
+              <p class="np-persona-age">(42 years old)</p>
+              <blockquote class="np-persona-quote">“I am just too busy to help my mom as much as would like to.”</blockquote>
             </div>
-            <img class="np-persona-photo" src="https://images.unsplash.com/photo-1581579438747-1dc6d17bb7f4?w=400&q=80" width="220" height="220" alt="Portrait of Ashley Miller">
+            <img class="np-persona-photo" src="image/navapersona.png" width="220" height="220" alt="Portrait of Ashley Miller">
           </div>
           <div class="np-persona-grid">
-            <div class="np-persona-cell">
-              <h4>Technology use</h4>
-              <ul>
-                <li>Tablet for video calls and photos</li>
-                <li>Smart TV for streaming</li>
-                <li>Avoids installing new apps without help</li>
-              </ul>
+          <div class="np-persona-summary">
+          <div class="np-persona-summary-row np-persona-summary-row--4">
+            <div class="np-persona-summary-item">
+              <h4>Location</h4>
+              <p>Los Angeles, Ca</p>
             </div>
-            <div class="np-persona-cell">
-              <h4>Social habits</h4>
-              <ul>
-                <li>Weekly calls with grandchildren</li>
-                <li>Book club and community center</li>
-                <li>Prefers voice over typing</li>
-              </ul>
+            <div class="np-persona-summary-item">
+              <h4>Occupation</h4>
+              <p>Hospital Administrator</p>
             </div>
-            <div class="np-persona-cell">
-              <h4>Daily challenges</h4>
-              <ul>
-                <li>Small text and dense settings screens</li>
-                <li>Remembering passwords and steps</li>
-                <li>Fear of scams and mis-taps</li>
-              </ul>
+            <div class="np-persona-summary-item">
+              <h4>Education</h4>
+              <p>Bachelors in Finance</p>
             </div>
+            <div class="np-persona-summary-item">
+              <h4>Income</h4>
+              <p>$120k / year</p>
+            </div>
+          </div>
+          <hr class="np-persona-summary-divider" />
+          <div class="np-persona-summary-row np-persona-summary-row--3">
+            <div class="np-persona-summary-item">
+              <h4>Personality Traits</h4>
+              <p>Busy, caring, organized, digitally capable</p>
+            </div>
+            <div class="np-persona-summary-item">
+              <h4>Preferred Devices</h4>
+              <p>Smartphone, tablet, laptop</p>
+            </div>
+            <div class="np-persona-summary-item">
+              <h4>Most-Used Services</h4>
+              <p>Text, FaceTime, email, Amazon, patient portals</p>
+            </div>
+          </div>
+          <hr class="np-persona-summary-divider" />
+        </div>
             <div class="np-persona-cell">
-              <h4>Motivations</h4>
+              <h4>Digital Behavior</h4>
               <ul>
-                <li>Staying independent at home</li>
-                <li>Helping family when she can</li>
-                <li>Learning without feeling judged</li>
+                <li>Tries to solve issues herself</li>
+                <li>Helps her mom remotely by phone</li>
+                <li>Searchs quick video tutorials when stuck</li>
               </ul>
             </div>
             <div class="np-persona-cell">
               <h4>Goals</h4>
               <ul>
-                <li>Reliable video visits</li>
-                <li>Simple answers about bills and benefits</li>
-                <li>Enjoying shows without tech friction</li>
+                <li>Helps her mom stay independent</li>
+                <li>Reduces repeat tech-support calls</li>
+                <li>Believes her mom can handle daily tasks</li>
               </ul>
             </div>
             <div class="np-persona-cell">
-              <h4>Frustrations &amp; core needs</h4>
+              <h4>challenges</h4>
               <ul>
-                <li>Interfaces that change without warning</li>
-                <li>Jargon-heavy error messages</li>
-                <li>Needs patience, repetition, and clear next steps</li>
+                <li>Limited time and attention</li>
+                <li>Mom gets stuck on multi-step daily tasks</li>
+                <li>Existing tools are too generic or confusing</li>
               </ul>
             </div>
+            <div class="np-persona-cell">
+              <h4><strong>Brand Values</strong></h4>
+              <ul>
+                <li>Trust,simplicity,reliability,family visibility</li>
+              </ul>
+            </div>
+           
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Prototype -->
-    <section class="np-band np-band--lavender" aria-labelledby="proto-heading">
-      <div class="np-container">
-        <h2 id="proto-heading" class="np-section-title">Prototype</h2>
-        <div class="np-proto-wrap">
-          <div class="np-proto-blob" aria-hidden="true"></div>
-          <div class="np-phones">
-            <div class="np-phone">
-              <div class="np-phone-screen">
-                <div class="np-phone-scale">
-                  <iframe src="Nava.html" title="Nava app prototype" loading="lazy"></iframe>
-                </div>
-              </div>
-            </div>
-            <div class="np-phone np-phone--static">
-              <div class="np-phone-screen">
-                <div class="np-mock-yellow" aria-hidden="true"></div>
-                <div class="np-mock-fields" aria-hidden="true">
-                  <div class="np-mock-field"></div>
-                  <div class="np-mock-field"></div>
-                </div>
-                <div class="np-mock-cta" aria-hidden="true"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Market Analysis -->
     <section class="np-band np-band--lavender" aria-labelledby="market-heading">
       <div class="np-container">
-        <h2 id="market-heading" class="np-section-title">Market Analysis</h2>
-        <div class="np-market">
+        <h2 id="market-heading" class="np-section-title np-reveal">Market Analysis</h2>
+        <div class="np-market np-reveal">
           <div>
             <p class="np-prose">
               The market for inclusive consumer technology is expanding as populations age and regulations emphasize accessible design. Organizations that pair <strong>simple interaction models</strong> with trustworthy assistance can capture both direct-to-consumer and partnership channels.
@@ -185,129 +203,290 @@
       </div>
     </section>
 
-    <!-- Competitive Landscape — Strategy Canvas -->
+    <!-- Competitive Landscape -->
     <section class="np-band np-band--lavender" aria-labelledby="comp-heading">
-      <div class="np-container">
-        <h2 id="comp-heading" class="np-section-title">Competitive Landscape</h2>
-        <div class="np-strategy-canvas">
-          <aside class="np-strategy-legend" aria-label="Legend">
-            <p class="np-strategy-legend-title">Legend</p>
-            <ul class="np-strategy-legend-list">
-              <li>
-                <span class="np-strategy-legend-marker np-strategy-legend-marker--circle" style="--m:#f59e0b" aria-hidden="true"></span>
-                <span>Google / AI Chat</span>
-              </li>
-              <li>
-                <span class="np-strategy-legend-marker np-strategy-legend-marker--diamond" style="--m:#ea580c" aria-hidden="true"></span>
-                <span>Youtube</span>
-              </li>
-              <li>
-                <span class="np-strategy-legend-marker np-strategy-legend-marker--triangle" style="--m:#ec4899" aria-hidden="true"></span>
-                <span>Family Support</span>
-              </li>
-              <li>
-                <span class="np-strategy-legend-marker np-strategy-legend-marker--star" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#16a34a" aria-hidden="true">
-                    <path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/>
-                  </svg>
-                </span>
-                <span>OUR SOLUTION</span>
-              </li>
-            </ul>
-          </aside>
-          <div class="np-strategy-chart-wrap">
-            <svg class="np-strategy-svg" viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="strategy-chart-title">
-              <title id="strategy-chart-title">Strategy canvas comparing Google AI Chat, Youtube, Family Support, and our solution across seven criteria</title>
-              <!-- Quadrant headers (ELIMINATE | REDUCE | RAISE | CREATE) -->
-              <g font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#0f0f0f">
-                <text x="87.5" y="28">ELIMINATE</text>
-                <text x="190" y="28">REDUCE</text>
-                <text x="355" y="28">RAISE</text>
-                <text x="630" y="28">CREATE</text>
-              </g>
-              <!-- Vertical quadrant dividers (after col 1, 2, 4) -->
-              <g stroke="#9ca3af" stroke-width="1" stroke-dasharray="4 4" opacity="0.95">
-                <line x1="135" y1="42" x2="135" y2="280"/>
-                <line x1="245" y1="42" x2="245" y2="280"/>
-                <line x1="465" y1="42" x2="465" y2="280"/>
-              </g>
-              <!-- Horizontal grid: 5 lines (scale 5 → 1) -->
-              <g stroke="#e5e7eb" stroke-width="1">
-                <line x1="40" y1="50" x2="780" y2="50"/>
-                <line x1="40" y1="107.5" x2="780" y2="107.5"/>
-                <line x1="40" y1="165" x2="780" y2="165"/>
-                <line x1="40" y1="222.5" x2="780" y2="222.5"/>
-                <line x1="40" y1="280" x2="780" y2="280"/>
-              </g>
-              <g font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#5c5c6a" text-anchor="end">
-                <text x="32" y="54">HIGH</text>
-                <text x="32" y="284">LOW</text>
-              </g>
-              <!-- Seven criteria (x: 80 + i*110) -->
-              <g font-family="Inter, system-ui, sans-serif" font-size="8.5" fill="#5c5c6a" text-anchor="middle">
-                <text x="80" y="300">Generic Instructions</text>
-                <text x="190" y="300">Family Burden</text>
-                <text x="300" y="300">Step clarity</text>
-                <text x="410" y="300">Check-ins</text>
-                <text x="520" y="312">Tailored instructions</text>
-                <text x="630" y="312">Context capture</text>
-                <text x="740" y="312">Family Handoff</text>
-              </g>
-              <!-- Dashed polylines; y = 280 - (v-1)/4 * 230 -->
-              <g fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-                <polyline stroke="#ea580c" stroke-dasharray="6 5"
-                  points="80,136.25 190,136.25 300,251.25 410,251.25"/>
-                <polyline stroke="#f59e0b" stroke-dasharray="6 5"
-                  points="80,78.75 190,119 300,211 410,251.25"/>
-                <polyline stroke="#ec4899" stroke-dasharray="6 5"
-                  points="80,251.25 190,61.5 300,136.25 410,78.75"/>
-                <polyline stroke="#16a34a" stroke-dasharray="6 5"
-                  points="80,251.25 190,193.75 300,78.75 410,78.75 520,78.75 630,78.75 740,78.75"/>
-              </g>
-              <g stroke-width="1.5">
-                <g fill="#f59e0b" stroke="#b45309">
-                  <circle cx="80" cy="78.75" r="5"/>
-                  <circle cx="190" cy="119" r="5"/>
-                  <circle cx="300" cy="211" r="5"/>
-                  <circle cx="410" cy="251.25" r="5"/>
-                </g>
-                <g fill="#ea580c" stroke="#9a3412">
-                  <polygon points="80,131.25 85,136.25 80,141.25 75,136.25"/>
-                  <polygon points="190,131.25 195,136.25 190,141.25 185,136.25"/>
-                  <polygon points="300,246.25 305,251.25 300,256.25 295,251.25"/>
-                  <polygon points="410,246.25 415,251.25 410,256.25 405,251.25"/>
-                </g>
-                <g fill="#ec4899" stroke="#9d174d">
-                  <polygon points="80,246.25 85,256.25 75,256.25"/>
-                  <polygon points="190,54 184.5,66 195.5,66"/>
-                  <polygon points="300,128.25 307,141.25 293,141.25"/>
-                  <polygon points="410,70.75 417,83.75 403,83.75"/>
-                </g>
-                <g fill="#16a34a" stroke="#14532d">
-                  <path transform="translate(80,251.25)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
-                  <path transform="translate(190,193.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
-                  <path transform="translate(300,78.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
-                  <path transform="translate(410,78.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
-                  <path transform="translate(520,78.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
-                  <path transform="translate(630,78.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
-                  <path transform="translate(740,78.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
-                </g>
-              </g>
-            </svg>
-          </div>
-        </div>
+  <div class="np-container">
+    <h2 id="comp-heading" class="np-section-title np-reveal">Competitive Landscape</h2>
+    <div class="np-competitive-stack np-reveal">
+    <div class="np-strategy-canvas np-comp-surface">
+      <aside class="np-strategy-legend" aria-label="Legend">
+        <p class="np-strategy-legend-title">Legend</p>
+        <ul class="np-strategy-legend-list">
+          <li>
+            <span class="np-strategy-legend-marker np-strategy-legend-marker--circle" style="--m:#f59e0b" aria-hidden="true"></span>
+            <span>Google / AI Chat</span>
+          </li>
+          <li>
+            <span class="np-strategy-legend-marker np-strategy-legend-marker--diamond" style="--m:#ea580c" aria-hidden="true"></span>
+            <span>Youtube</span>
+          </li>
+          <li>
+            <span class="np-strategy-legend-marker np-strategy-legend-marker--triangle" style="--m:#ec4899" aria-hidden="true"></span>
+            <span>Family Support</span>
+          </li>
+          <li>
+            <span class="np-strategy-legend-marker np-strategy-legend-marker--star" style="--m:#16a34a" aria-hidden="true"></span>
+            <span>OUR SOLUTION</span>
+          </li>
+        </ul>
+      </aside>
+      <div class="np-strategy-chart-wrap">
+        <svg class="np-strategy-svg" viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="strategy-chart-title">
+          <title id="strategy-chart-title">Strategy canvas comparing Google AI Chat, Youtube, Family Support, and our solution across seven criteria</title>
+          <!-- Quadrant headers -->
+          <g font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#0f0f0f">
+            <text x="87.5" y="28">ELIMINATE</text>
+            <text x="190" y="28">REDUCE</text>
+            <text x="355" y="28">RAISE</text>
+            <text x="630" y="28">CREATE</text>
+          </g>
+          <!-- Vertical dividers -->
+          <g stroke="#9ca3af" stroke-width="1" stroke-dasharray="4 4" opacity="0.95">
+            <line x1="135" y1="42" x2="135" y2="280"/>
+            <line x1="245" y1="42" x2="245" y2="280"/>
+            <line x1="465" y1="42" x2="465" y2="280"/>
+          </g>
+          <!-- Horizontal grid -->
+          <g stroke="#e5e7eb" stroke-width="1">
+            <line x1="40" y1="50" x2="780" y2="50"/>
+            <line x1="40" y1="107.5" x2="780" y2="107.5"/>
+            <line x1="40" y1="165" x2="780" y2="165"/>
+            <line x1="40" y1="222.5" x2="780" y2="222.5"/>
+            <line x1="40" y1="280" x2="780" y2="280"/>
+          </g>
+          <g font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#5c5c6a" text-anchor="end">
+            <text x="32" y="54">HIGH</text>
+            <text x="32" y="284">LOW</text>
+          </g>
+          <!-- X labels -->
+          <g font-family="Inter, system-ui, sans-serif" font-size="8.5" fill="#5c5c6a" text-anchor="middle">
+            <text x="80" y="300">Generic Instructions</text>
+            <text x="190" y="300">Family Burden</text>
+            <text x="300" y="300">Step clarity</text>
+            <text x="410" y="300">Check-ins</text>
+            <text x="520" y="300">Tailored instructions</text>
+            <text x="630" y="300">Context capture</text>
+            <text x="740" y="300">Family Handoff</text>
+          </g>
+          <!-- Lines -->
+          <g fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+            <polyline stroke="#ea580c" stroke-dasharray="6 5" points="80,136.25 190,136.25 300,251.25 410,251.25"/>
+            <polyline stroke="#f59e0b" stroke-dasharray="6 5" points="80,78.75 190,119 300,211 410,251.25"/>
+            <polyline stroke="#ec4899" stroke-dasharray="6 5" points="80,251.25 190,61.5 300,136.25 410,78.75"/>
+            <polyline stroke="#16a34a" stroke-dasharray="6 5" points="80,251.25 190,193.75 300,78.75 410,78.75 520,78.75 630,78.75 740,78.75"/>
+          </g>
+          <!-- Markers -->
+          <g stroke-width="1.5">
+            <g fill="#f59e0b" stroke="#b45309">
+              <circle cx="80" cy="78.75" r="5"/>
+              <circle cx="190" cy="119" r="5"/>
+              <circle cx="300" cy="211" r="5"/>
+              <circle cx="410" cy="251.25" r="5"/>
+            </g>
+            <g fill="#ea580c" stroke="#9a3412">
+              <polygon points="80,131.25 85,136.25 80,141.25 75,136.25"/>
+              <polygon points="190,131.25 195,136.25 190,141.25 185,136.25"/>
+              <polygon points="300,246.25 305,251.25 300,256.25 295,251.25"/>
+              <polygon points="410,246.25 415,251.25 410,256.25 405,251.25"/>
+            </g>
+            <g fill="#ec4899" stroke="#9d174d">
+              <polygon points="80,246.25 85,256.25 75,256.25"/>
+              <polygon points="190,54 184.5,66 195.5,66"/>
+              <polygon points="300,128.25 307,141.25 293,141.25"/>
+              <polygon points="410,70.75 417,83.75 403,83.75"/>
+            </g>
+            <g fill="#16a34a" stroke="#14532d">
+              <path transform="translate(80,251.25)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
+              <path transform="translate(190,193.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
+              <path transform="translate(300,78.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
+              <path transform="translate(410,78.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
+              <path transform="translate(520,78.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
+              <path transform="translate(630,78.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
+              <path transform="translate(740,78.75)" d="M0,-5.5 L1.3,-1.5 L5.5,-1.5 L2.1,1.2 L3.4,5.5 L0,2.8 L-3.4,5.5 L-2.1,1.2 L-5.5,-1.5 L-1.3,-1.5 Z"/>
+            </g>
+          </g>
+        </svg>
       </div>
-    </section>
+    </div>
+    <div class="np-comp-landscape-card np-comp-surface">
+      <figure class="np-comp-landscape-figure">
+        <img class="np-comp-landscape-img"
+          src="image/competitve%20landscape.png"
+          alt="Competitive landscape diagram"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
+    </div>
+    </div>
+  </div>
+</section>
 
     <!-- Pro Forma -->
     <section class="np-band np-band--lavender" aria-labelledby="proforma-heading">
       <div class="np-container">
-        <h2 id="proforma-heading" class="np-section-title">Pro Forma</h2>
-        <div class="np-proforma">
-          Space reserved for revenue model, unit economics, and multi-year projections.
+        <h2 id="proforma-heading" class="np-section-title np-reveal">Pro Forma</h2>
+        <div class="np-proforma-wrap np-reveal">
+          <table class="np-proforma-table">
+            <thead>
+              <tr>
+                <th scope="col">Financial Category (USD $1k)</th>
+                <th scope="col">Year 1 (2025)</th>
+                <th scope="col">Year 2 (2026)</th>
+                <th scope="col">Year 3 (2027)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="np-proforma-row np-proforma-row--users">
+                <td><strong>Total Active Users (Year-End)</strong></td>
+                <td>10,690</td>
+                <td>49,391</td>
+                <td>228,210</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--rev">
+                <td>I. Subscription Revenue (B2C)</td>
+                <td>$352</td>
+                <td>$2,168</td>
+                <td>$13,345</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--rev">
+                <td>II. Gov/B2B Licensing (API)</td>
+                <td>$50</td>
+                <td>$450</td>
+                <td>$2,500</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--rev np-proforma-row--total">
+                <td>Total Revenue</td>
+                <td>$402</td>
+                <td>$2,618</td>
+                <td>$15,845</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--cogs np-proforma-row--total">
+                <td><strong>COGS (AI, Cloud, Support)</strong></td>
+                <td>-$161</td>
+                <td>-$1,047</td>
+                <td>-$6,338</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--cogs np-proforma-row--sub">
+                <td>AI / Inference Costs (30%)</td>
+                <td>-$121</td>
+                <td>-$785</td>
+                <td>-$4,754</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--cogs np-proforma-row--sub">
+                <td>Cloud / Hosting Costs (10%)</td>
+                <td>-$40</td>
+                <td>-$262</td>
+                <td>-$1,584</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--gp np-proforma-row--total">
+                <td><strong>Gross Profit</strong></td>
+                <td>$241</td>
+                <td>$1,571</td>
+                <td>$9,507</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--opex np-proforma-row--total">
+                <td><strong>SG&amp;A (Operating Expenses)</strong></td>
+                <td>-$445</td>
+                <td>-$1,710</td>
+                <td>-$4,600</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--opex np-proforma-row--sub">
+                <td>Payroll (Team &amp; Support)</td>
+                <td>-$280</td>
+                <td>-$1,000</td>
+                <td>-$3,100</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--opex np-proforma-row--sub">
+                <td>B2G Sales &amp; Compliance</td>
+                <td>-$45</td>
+                <td>-$170</td>
+                <td>-$400</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--opex np-proforma-row--sub">
+                <td>Marketing (B2C CAC)</td>
+                <td>-$120</td>
+                <td>-$540</td>
+                <td>-$1,100</td>
+              </tr>
+              <tr class="np-proforma-row np-proforma-row--ebitda np-proforma-row--total">
+                <td><strong>EBITDA</strong></td>
+                <td>-$204</td>
+                <td>-$139</td>
+                <td>$4,907</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
   </article>
+  <script>
+    (function () {
+      var nodes = document.querySelectorAll(".np-reveal");
+      if (!nodes.length) return;
+
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced || !document.documentElement.classList.contains("np-reveal-js")) {
+        nodes.forEach(function (el) {
+          el.classList.add("np-reveal--in");
+        });
+        return;
+      }
+
+      var obs = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("np-reveal--in");
+            obs.unobserve(entry.target);
+          });
+        },
+        { root: null, rootMargin: "0px 0px -5% 0px", threshold: 0.06 }
+      );
+
+      nodes.forEach(function (el) {
+        obs.observe(el);
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var toggle = document.getElementById("menu-toggle");
+      var btn = document.getElementById("menu-btn");
+      var sidebar = document.getElementById("sidebar");
+      if (!toggle || !sidebar) return;
+
+      function syncAria() {
+        var open = toggle.checked;
+        if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+        if (btn) btn.setAttribute("aria-label", open ? "Close site menu" : "Open site menu");
+      }
+
+      toggle.addEventListener("change", syncAria);
+      syncAria();
+
+      document.addEventListener("click", function (e) {
+        if (!toggle.checked) return;
+        var t = e.target;
+        if ((btn && btn.contains(t)) || sidebar.contains(t)) return;
+        toggle.checked = false;
+        syncAria();
+      });
+
+      sidebar.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          toggle.checked = false;
+          syncAria();
+        });
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key !== "Escape" || !toggle.checked) return;
+        toggle.checked = false;
+        syncAria();
+      });
+    })();
+  </script>
 </body>
 </html>

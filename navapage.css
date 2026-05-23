@@ -8,6 +8,12 @@
   font-display: swap;
 }
 
+html {
+  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
 :root {
   --np-bg: #f4f4f9;
   --np-lavender: #e8e8f5;
@@ -24,19 +30,106 @@
 
 .navapage-body {
   margin: 0;
+  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
   font-family: var(--np-font);
   color: var(--np-text);
   background: var(--np-bg);
   -webkit-font-smoothing: antialiased;
+  /* Sidebar (shared tokens with index.html) */
+  --sidebar-text: #242424;
+  --sidebar-hover: #b766d7;
+  --sidebar-font: "Roboto Mono", monospace;
+  --sidebar-font-size: clamp(14px, 1.6vw, 18px);
 }
 
 .navapage {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/* First header: hero PNG stays fully inside the viewport (no crop, no overflow) */
+.navapage > header {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  max-height: 100vh;
+  max-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--np-bg);
+}
+
+.navapage > header img {
+  display: block;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  max-height: 100vh;
+  max-height: 100dvh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Scroll-triggered text blocks: quick slide-up when entering the viewport */
+html.np-reveal-js .np-reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.np-reveal-js .np-reveal.np-reveal--in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.np-reveal-js .np-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .np-container {
   width: min(100% - 48px, var(--np-max));
+  max-width: 100%;
   margin-inline: auto;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* Same content width at every breakpoint (strategy card + image + tables align) */
+@media (max-width: 900px) {
+  .np-container {
+    width: min(100% - 40px, var(--np-max));
+  }
+}
+
+@media (max-width: 640px) {
+  .np-container {
+    width: min(100% - 32px, var(--np-max));
+  }
+}
+
+@media (max-width: 480px) {
+  .np-container {
+    width: min(100% - 24px, var(--np-max));
+  }
 }
 
 .np-section-title {
@@ -559,7 +652,6 @@
 .np-rings {
   position: relative;
   width: min(100%, 360px);
-  /* Explicit height so %-heights inside don’t collapse; also helps abs children lay out */
   aspect-ratio: 1;
   min-height: 200px;
   margin-inline: auto;
@@ -575,7 +667,6 @@
   transform: translateX(-50%);
   border-radius: 50%;
   pointer-events: none;
-  /* Use width + aspect-ratio — avoid height:100% on abs box (can resolve to 0) */
   aspect-ratio: 1;
   height: auto;
 }
@@ -615,7 +706,6 @@
   transform: translate(-50%, -50%);
 }
 
-/* Top of mid circle = 100% - mid; top of inner = 100% - inner */
 .np-market-ring-label--outer {
   top: calc((100% - var(--np-ring-outer) + (100% - var(--np-ring-mid))) / 2);
 }
@@ -644,21 +734,44 @@
   max-width: 22ch;
 }
 
+/* Competitive — chart + image share one column width & identical chrome */
+.np-competitive-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(16px, 2.5vw, 24px);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  /* Scoped tokens so both panels stay pixel-matched at every breakpoint */
+  --np-comp-surface-radius: 20px;
+  --np-comp-surface-shadow: 0 4px 24px rgba(15, 15, 15, 0.06);
+}
+
+.np-comp-surface {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  align-self: stretch;
+  box-sizing: border-box;
+  border-radius: var(--np-comp-surface-radius);
+  box-shadow: var(--np-comp-surface-shadow);
+  overflow: hidden;
+}
+
 /* Competitive — Strategy Canvas */
 .np-strategy-canvas {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   background: var(--np-white);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 24px rgba(15, 15, 15, 0.06);
 }
 
 .np-strategy-legend {
   flex: 0 0 min(200px, 100%);
-  background: #4a4a52;
-  color: #f4f4f5;
+  background: #fff6c2;
+  color: #222222;
   padding: clamp(20px, 3vw, 28px);
   font-size: 0.875rem;
   line-height: 1.45;
@@ -721,7 +834,7 @@
 }
 
 .np-strategy-legend-marker--star {
-  background-color: transparent;
+  background-color: transparent; /* fixed: keep svg image visible */
   width: 16px;
   height: 16px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2316a34a'%3E%3Cpath d='M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z'/%3E%3C/svg%3E");
@@ -746,152 +859,291 @@
   vertical-align: middle;
 }
 
-.np-chart-wrap {
-  background: var(--np-white);
-  border-radius: 20px;
-  padding: clamp(20px, 3vw, 28px);
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 24px rgba(15, 15, 15, 0.06);
-  overflow-x: auto;
-}
-
-.np-chart-wrap svg {
+/* Competitive landscape image — same stack width / radius / shadow as .np-strategy-canvas */
+.np-comp-landscape-card {
   display: block;
-  min-width: 560px;
+  background: var(--np-white);
+}
+
+.np-comp-landscape-figure {
+  margin: 0;
+  padding: 0;
+  display: block;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  line-height: 0;
 }
 
-.np-comp-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(20px, 3vw, 28px);
+.np-comp-landscape-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  object-fit: contain;
 }
 
-@media (max-width: 900px) {
-  .np-comp-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 640px) {
+  .np-competitive-stack {
+    --np-comp-surface-radius: 16px;
   }
 }
 
-.np-table-wrap {
+@media (max-width: 480px) {
+  .np-competitive-stack {
+    --np-comp-surface-radius: 14px;
+    --np-comp-surface-shadow: 0 3px 18px rgba(15, 15, 15, 0.07);
+  }
+}
+/* Pro Forma — financial table */
+.np-proforma-wrap {
+  margin-top: 1.5rem;
   background: var(--np-white);
   border-radius: 20px;
-  padding: clamp(16px, 2vw, 24px);
+  border: 1px solid #d8d8e0;
+  box-shadow: 0 4px 24px rgba(15, 15, 15, 0.06);
   overflow-x: auto;
-  box-shadow: 0 4px 24px rgba(15, 15, 15, 0.06);
 }
 
-.np-table {
+.np-proforma-table {
   width: 100%;
+  min-width: 640px;
   border-collapse: collapse;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--np-text);
 }
 
-.np-table th,
-.np-table td {
-  padding: 10px 12px;
-  text-align: center;
-  border-bottom: 1px solid #eee;
+.np-proforma-table th,
+.np-proforma-table td {
+  padding: 10px 14px;
+  border: 1px solid #cfd0d8;
+  vertical-align: middle;
 }
 
-.np-table th {
+.np-proforma-table thead th {
+  background: #fff;
   font-weight: 700;
-  background: #f8f8fc;
-}
-
-.np-table th:first-child,
-.np-table td:first-child {
   text-align: left;
-  font-weight: 600;
 }
 
-.np-check {
-  color: #16a34a;
+.np-proforma-table thead th:not(:first-child) {
+  text-align: right;
+}
+
+.np-proforma-table tbody td:first-child {
+  text-align: left;
+}
+
+.np-proforma-table tbody td:not(:first-child) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.np-proforma-row--users td {
+  background: #d0e2f3;
+}
+
+.np-proforma-row--rev td {
+  background: #fff2cc;
+}
+
+.np-proforma-row--cogs td {
+  background: #f4cccc;
+}
+
+.np-proforma-row--gp td {
+  background: #fff;
+}
+
+.np-proforma-row--opex td {
+  background: #d9d2e9;
+}
+
+.np-proforma-row--ebitda td {
+  background: #d9ead3;
+}
+
+.np-proforma-row--total td {
   font-weight: 700;
 }
 
-.np-x {
-  color: #dc2626;
+.np-proforma-row--sub td:first-child {
+  padding-left: 1.5rem;
+  font-weight: 500;
+}
+
+.np-proforma-table strong {
   font-weight: 700;
+  color: inherit;
 }
 
-.np-matrix {
-  background: var(--np-white);
-  border-radius: 20px;
-  padding: clamp(20px, 3vw, 28px);
-  box-shadow: 0 4px 24px rgba(15, 15, 15, 0.06);
-  aspect-ratio: 1;
-  max-height: 420px;
-  position: relative;
-  display: grid;
-  place-items: center;
+/* ========== Site sidebar (from index.html: menu + drawer) ========== */
+.navapage-body #menu-toggle {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
 }
 
-.np-matrix-grid {
-  width: 85%;
-  height: 85%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 2px;
-  background: #ddd;
-  border-radius: 12px;
-  overflow: hidden;
+.navapage-body #menu-btn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--sidebar-text);
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+  transform-origin: right center;
 }
 
-.np-matrix-q {
-  background: #fafafa;
+.navapage-body #menu-btn .line1 {
+  transform: scaleX(1);
+}
+
+.navapage-body #menu-btn .line2 {
+  transform: scaleX(0.8);
+}
+
+.navapage-body #menu-btn .line3 {
+  transform: scaleX(0.6);
+}
+
+.navapage-body #menu-btn:hover .line1 {
+  transform: scaleX(0.4);
+  background: var(--sidebar-hover);
+  transition-delay: 0s;
+}
+
+.navapage-body #menu-btn:hover .line2 {
+  transform: scaleX(1);
+  background: var(--sidebar-hover);
+  transition-delay: 0.05s;
+}
+
+.navapage-body #menu-btn:hover .line3 {
+  transform: scaleX(0.7);
+  background: var(--sidebar-hover);
+  transition-delay: 0.1s;
+}
+
+.navapage-body #menu-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 22px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--np-muted);
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 10002;
 }
 
-.np-matrix-dot {
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: var(--np-yellow);
-  color: var(--np-text);
-  font-size: 0.6875rem;
-  font-weight: 700;
+@media (max-width: 480px) {
+  .navapage-body #menu-btn {
+    width: 2.5rem;
+    height: 1.625rem;
+    right: 1rem;
+    top: 0.75rem;
+  }
+
+  .navapage-body #menu-btn span {
+    height: 0.25rem;
+  }
 }
 
-.np-matrix-axis-y {
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--np-muted);
-  white-space: nowrap;
+.navapage-body #sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(250px, 85vw);
+  height: 100%;
+  height: 100dvh;
+  max-height: -webkit-fill-available;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10001;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
 }
 
-.np-matrix-axis-x {
+.navapage-body #sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navapage-body #sidebar li {
+  margin: 16px 0;
+  padding: 0;
+}
+
+.navapage-body #sidebar a {
+  display: block;
+  color: var(--sidebar-text);
+  text-decoration: none;
+  font-family: var(--sidebar-font);
+  font-size: var(--sidebar-font-size);
+}
+
+.navapage-body #sidebar .contact {
+  margin-top: auto;
+  padding-bottom: 1.5rem;
+}
+
+.navapage-body #sidebar .contact a {
+  font-size: var(--sidebar-font-size);
+  color: var(--sidebar-text);
+}
+
+.navapage-body .clickline {
+  display: inline-block;
+  font-family: var(--sidebar-font);
+  color: var(--sidebar-text);
+  text-decoration: none;
+  position: relative;
+}
+
+.navapage-body .clickline.active {
+  color: #000;
+  cursor: default;
+  pointer-events: none;
+}
+
+.navapage-body .clickline.active::after {
+  content: "";
   position: absolute;
   bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--np-muted);
+  left: 0;
+  width: 39%;
+  height: 2px;
+  background-color: #000;
+  border-radius: 2px;
 }
 
-/* Pro Forma */
-.np-proforma {
-  min-height: 320px;
-  border-radius: 24px;
-  border: 2px dashed rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--np-muted);
-  font-size: 1rem;
-  margin-top: 1.5rem;
+/* Desktop: hover opens drawer (matches index.html) */
+.navapage-body #menu-btn:hover ~ #sidebar,
+.navapage-body #sidebar:hover {
+  transform: translateX(0);
+}
+
+/* Checkbox “dismiss” state from index (desktop) */
+.navapage-body #menu-toggle:checked ~ #sidebar {
+  transform: translateX(100%);
+}
+
+/* Touch / no-hover: hamburger toggles drawer open */
+@media (hover: none) {
+  .navapage-body #menu-toggle:checked ~ #sidebar {
+    transform: translateX(0);
+  }
 }

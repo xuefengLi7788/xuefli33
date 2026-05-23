@@ -80,36 +80,36 @@ $(".dropdown").on("change", function () {
 // 页面加载时先设置为英文
 switchLang("en");
 
-//  打开弹窗
-
-feedbackBtn.onclick = () => {
-  popup.style.display = "flex";
-
-  popupBox.style.animation = "popupFadeScaleIn 0.25s cubic-bezier(0.25,1,0.5,1) forwards";
-};
-
-// 关闭弹窗
+// 反馈弹窗（仅 index.html 等包含 #feedbackBtn 的页面）
 function closePopup() {
+  if (!popup || !popupBox) return;
   popupBox.style.animation = "popupFadeScaleOut 0.25s cubic-bezier(0.25,1,0.5,1) forwards";
-
-  // 动画结束后隐藏
   setTimeout(() => {
-    popup.style.display = "none";
+    if (popup) popup.style.display = "none";
   }, 250);
 }
 
-popupClose.onclick = closePopup;
+if (feedbackBtn && popup && popupBox && popupClose) {
+  feedbackBtn.onclick = () => {
+    popup.style.display = "flex";
+    popupBox.style.animation = "popupFadeScaleIn 0.25s cubic-bezier(0.25,1,0.5,1) forwards";
+  };
 
-// 点击遮罩关闭
-popup.onclick = (e) => {
-  if (e.target === popup) {
-    closePopup();
-  }
-};
+  popupClose.onclick = closePopup;
 
-//EmailJS
+  popup.onclick = (e) => {
+    if (e.target === popup) {
+      closePopup();
+    }
+  };
+}
+
+// EmailJS（仅存在 #contact-form 时绑定）
 $(function () {
-  $("#contact-form").on("submit", function (e) {
+  var $form = $("#contact-form");
+  if (!$form.length) return;
+
+  $form.on("submit", function (e) {
     e.preventDefault();
 
     const name = $("#user-name").val();
@@ -130,7 +130,6 @@ $(function () {
       $("#user-email").val("");
       $("#message").val("");
 
-      // 1.5 秒后自动关闭弹窗
       setTimeout(() => {
         $("#feedbackPopup").css("display", "none");
         $("#send-btn").text("SEND");
@@ -194,13 +193,15 @@ $(function() {
 });
 
 const params = new URLSearchParams(window.location.search);
-const defaultCategory = params.get("category");
+const defaultCategoryRaw = params.get("category");
 
 $(function () {
-  if (defaultCategory) {
-    const targetTab = $(`.tab[data-category="${defaultCategory}"]`);
-    if (targetTab.length) {
-      targetTab.trigger("click");  // ✅ 自动触发 click，自然套用筛选逻辑
-    }
+  if (!defaultCategoryRaw) return;
+  var cat = String(defaultCategoryRaw).trim().toLowerCase();
+  var targetTab = $(".tab").filter(function () {
+    return $(this).data("category") === cat;
+  });
+  if (targetTab.length) {
+    targetTab.first().trigger("click");
   }
 });
