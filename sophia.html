@@ -7,10 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="project-page sophia-page">
-  <video autoplay muted loop playsinline id="bg-video">
-    <source src="web bg video.mp4" type="video/mp4">
-  </video>
-
+  
   <input type="checkbox" id="menu-toggle">
   <label for="menu-toggle" id="menu-btn" aria-label="Open site menu">
     <span class="line1"></span>
@@ -20,11 +17,11 @@
 
   <nav id="sidebar" aria-label="Site">
     <ul>
-    
+
       <li><a href="playground.html">Playground</a></li>
       <li><a href="projects.html">All Project</a></li>
       <li><a href="sophia.html" class="clickline active" aria-current="page">Sophia: Awakening</a></li>
-    
+
     </ul>
     <ul class="contact">
       <li><a href="mailto:xuefli33@gmail.com">xuefli33@gmail.com</a></li>
@@ -37,6 +34,12 @@
   </section>
 
   <main class="sophia-player">
+    <h1 class="sophia-title">Sophia:Awakening</h1>
+      <div class="sophia-intro">
+      <p class="sophia-intro-meta">Solo Project | 2026.4 – 2026.5</p>
+      <p>A conceptual 30s film designed for Hanson Robotics and its humanoid robot Sophia. The project uses fashion as a form of emotional and psychological expression, visualizing the transformation of a robot from a controlled system into a more autonomous and self-aware presence.The project combines VR and AIGC technologies to create an immersive cinematic experience that explores the relationship between artificial intelligence, embodiment, and human emotion.</p>
+      <p class="sophia-intro-tools">Tools: C4D, Seedance 2.0, Image2, Unity.</p>
+    </div>
     <div class="sophia-player-frame">
       <iframe
         src="https://player.vimeo.com/video/1195041402?title=0&amp;byline=0&amp;portrait=0"
@@ -45,9 +48,22 @@
         allowfullscreen
       ></iframe>
     </div>
-    <p class="sophia-caption">Sophia:Awakening<br>AIGC VIDEO · 2026</p>
+    <p class="sophia-caption">AIGC VIDEO</p>
+    <img
+      class="sophia-lab-img"
+      src="image/sophialab.png"
+      alt="Sophia lab process"
+      loading="lazy"
+      decoding="async"
+    >
+     <p class="sophia-caption">3D Lab Design</p>
+        <div class="sophia-vr-row">
+      <img src="image/VRtest1.png" alt="VR test 1" loading="lazy" decoding="async">
+      <img src="image/VRtest2.png" alt="VR test 2" loading="lazy" decoding="async">
+    </div>
+    <p class="sophia-caption">VR experience Design</p>
   </main>
-
+      
   <footer class="site-footer">
     <p>Copyright © Xuefeng Li</p>
   </footer>

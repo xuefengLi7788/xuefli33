@@ -2,29 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>uiux-page</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Xuefeng Li</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
 </head>
-<body class="uiux-page">
+<!-- re-run site -->
+<body>
+  <!-- bgvideo -->
+  <video autoplay muted loop playsinline webkit-playsinline id="bg-video">
+    <source src="web bg video.mp4" type="video/mp4">
+  </video>
 
-  <div class="container">
-    
+  <!-- Sidebar -->
+  
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" id="menu-btn"> <!-- Sidebar logo -->
+      <span class="line1"></span>
+      <span class="line2"></span>
+      <span class="line3"></span>
+  </label>
 
-    <div class="sidebar">
-      <h2><a href="index.html">DesignerVisa</a></h2>
-      <hr>
-      <ul class="menu">
-        <li>☐ Graphic Design</li>
-        <li>☐ Motion Design</li>
-        <li>☐ UIUX Design</li>
-        <li>☐ Interaction Design</li>
+  <div id="sidebar">
+      <ul>
+        <li><a href="playground.html" class="clickline active">Playground</a></li>
+        <li><a href="projects.html">All Project</a></li>
+        
       </ul>
-      <hr>
-      <p>@gmail<br>#Instagram</p>
-    </div>
-    
 
-
+      <ul class="contact">
+        <li><a href="mailto:xuefli33@gmail.com">xuefli33@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/xuefeng-li/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+  </div>
 
     <div class="projects">
       <div class="img-row">

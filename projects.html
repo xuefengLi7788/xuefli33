@@ -19,20 +19,18 @@
       <span class="line2"></span>
       <span class="line3"></span>
   </label>
-    <nav id="sidebar" aria-label="Site">
+    <div id="sidebar">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="playground.html">Playground</a></li>
-        <li><a href="projects.html" class="clickline active" aria-current="page">All Project</a></li>
-        <li><a href="sophia.html">Sophia: Awakening</a></li>
-        <li><a href="navapage.html">Nava</a></li>
+        <li><a href="index.html" >Playground</a></li>
+        <li><a href="projects.html" class="nav-link active">All Project</a></li>
+        
       </ul>
 
       <ul class="contact">
         <li><a href="mailto:xuefli33@gmail.com">xuefli33@gmail.com</a></li>
-        <li><a href="https://www.linkedin.com/in/xuefli33" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/xuefli33" target="_blank">LinkedIn</a></li>
       </ul>
-    </nav>
+  </div>
   
 
 
@@ -46,23 +44,40 @@
 
 
   <section class="gallery">
-    <div class="Project_cover" data-category="uiux">
-      <div class="Project_cover-media">
-        <video src="project_cover/intimatespace.mp4" muted autoplay loop playsinline preload="auto"></video>
-      </div>
-      <p>IntimateSpace.<br>2025</p>
+
+    <div class="Project_cover" data-category="motion">
+      <a href="sophia.html" class="Project_cover-media" aria-label="Open Sophia project page">
+        <video src="project_cover/SophiaCover.mp4" muted loop playsinline preload="metadata"></video>
+      </a>
+      <p>Sophia: Awakening - AIGC VIDEO<br>2026</p>
     </div>
+
+    <div class="Project_cover" data-category="motion">
+      <a href="Dunhuang.html" class="Project_cover-media" aria-label="Open Dunhuang project page">
+        <video src="project_cover/dunhuangcover.mp4" muted loop playsinline preload="metadata"></video>
+      </a>
+      <p>Dunhuang VR Game Trailor - AIGC VIDEO<br>2026</p>
+    </div>
+
+    <div class="Project_cover" data-category="motion">
+      <a href="nianchen.html" class="Project_cover-media" aria-label="Open Nianchen Installation project page">
+        <img src="image/nianchen1.png" alt="Nianchen Installation cover">
+      </a>
+      <p>Nianchen Installation<br>2026</p>
+    </div>
+
     <div class="Project_cover" data-category="uiux">
       <a href="navapage.html" class="Project_cover-media" aria-label="Open Nava project page">
         <img src="image/navapic.png" alt="Nava project cover">
       </a>
-      <p>Nava<br>2026</p>
+      <p>Nava - AI PRODUCT<br>2026</p>
     </div>
-    <div class="Project_cover" data-category="motion">
-      <a href="sophia.html" class="Project_cover-media" aria-label="Open Sophia project page">
-        <video src="project_cover/SophiaCover.mp4" muted autoplay loop playsinline preload="auto"></video>
-      </a>
-      <p>Sophia: Awakening<br>2026</p>
+
+    <div class="Project_cover" data-category="uiux">
+      <div class="Project_cover-media">
+        <video src="project_cover/intimatespace.mp4" muted loop playsinline preload="metadata"></video>
+      </div>
+      <p>IntimateSpace<br>2025</p>
     </div>
 
   </section>

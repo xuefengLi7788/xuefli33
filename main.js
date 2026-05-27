@@ -142,10 +142,25 @@ $(function () {
 });
 
 
-//play video in Project page
-// 自动播放可见的视频（可选，如果希望视频自动播放）
-$("video").each(function() {
-  this.play().catch(() => {});
+// Project page: bg video autoplays; cover videos play on hover only
+$(function () {
+  $("#bg-video").each(function () {
+    this.play().catch(function () {});
+  });
+
+  $(".Project_cover").each(function () {
+    var video = this.querySelector("video");
+    if (!video) return;
+
+    video.pause();
+
+    $(this).on("mouseenter", function () {
+      video.play().catch(function () {});
+    }).on("mouseleave", function () {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
 });
 
 
