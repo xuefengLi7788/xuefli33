@@ -598,6 +598,10 @@ html[lang="zh-CN"] * {
 
 
 /* Projectpage */
+body.project-page {
+  justify-content: flex-start;
+  align-items: stretch;
+}
 .category-header {
   position: fixed;       
   top: 20px;
